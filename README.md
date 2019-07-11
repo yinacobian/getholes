@@ -2,5 +2,5 @@
 Get regions with no coverage in a reference genome
 
 Dependencies:
-smalt
+smalt \n
 samtools1.6
