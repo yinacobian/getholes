@@ -16,8 +16,13 @@ samtools view -b -T $1.fasta map_$1_vs_$2.samsoft -o map_$1_vs_$2.bam
 samtools sort -O bam -T toto map_$1_vs_$2.bam -o sorted_map_$1_vs_$2.bam
 samtools mpileup -d 10000000 -a --reference $1.fasta sorted_map_$1_vs_$2.bam -o mpileup_sorted_map_$1_vs_$2.tab
 
- 
-#3. Get table of regions with holes
 
+#4. Get fasta of holes regions >100nt 
+perl holes.pl mpileup_sorted_map_$1_vs_$2.tab > holes_map_$1_vs_$2.fasta
 
-#4. Get fasta of holes regions
+#5. Get fasta of holes regions > 10000nt 
+perl removesmalls.pl 10000 holes_map_$1_vs_$2.fasta > big_holes_map_$1_vs_$2.fasta
+
+6. Get table of hole regions 
+grep '>' big_holes_map_$1_vs_$2.fasta | cut -f 2 -d '>' | tr ' ' '\t' > table_big_holes_map_$1_vs_$2.tab
+
