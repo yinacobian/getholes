@@ -1,5 +1,10 @@
 #!/bin/bash
 #Get regions with zero coverage in the reference genomes
+#to use holes.pl from anywhere in your account, add it to the path 
+
+#a) copy the script holes.pl to a directory in your home, for example /home/acobian/bin
+#b) give execution persmissions to the script holes.pl: chmod +x /home/acobian/bin/holes.pl
+#c) edit the file .bashrc (go to your home, and type "nano .bashrc") and add to the end: export PATH=$PATH:/home/acobian/bin/
 
 #bash getholes.sh genomeIDSlist fasta
 #$1 database fasta id
