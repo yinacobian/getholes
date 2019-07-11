@@ -1,4 +1,4 @@
-What we need is a perl script that do the following: 
+What we need is a perl script to do the following: 
 
 1. Read mpileup file, we only need columns 1,2, 3 and 4 
 
