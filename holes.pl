@@ -1,3 +1,48 @@
+#!/usr/bin/perl
+
+use strict;
+
+
+my $gene;
+my $id=0;
+my $ll=0;
+my $id_ref='';
+my $start=1;
+my $end=0;
+my $arewegettingholes=0;
+while(<>) {
+    my @fields=split;
+    if ($fields[3]==0) {
+        if ($arewegettingholes==0) {
+            $start=$fields[1];
+            $ll=0;
+            $end=$start;
+            $gene='';
+            $id_ref=$fields[0];
+            $arewegettingholes=1;
+        }
+        $gene.=$fields[2];
+        $end++;
+        $ll++;
+    } else {
+        if ($arewegettingholes==1) {
+            $arewegettingholes=0;
+            if ($ll >= 100) {
+                my $dif=$end-$start;
+                print ">$id_ref"."-hole$id $start $end $dif\n$gene\n";
+                $id++;
+            }
+        }
+     }
+}
+
+
+
+
+
+
+
+__DATA__
 What we need is a perl script to do the following: 
 
 1. Read mpileup file, we only need columns 1,2, 3 and 4 
