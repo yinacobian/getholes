@@ -6,4 +6,4 @@ smalt,
 samtools1.6
 
 
-![fragment recruitment assembly purification!](FRAP_pic.png)
+![Holes example genome!](fragplot_polished_CF116mg08052017_CP017433.1.png)
