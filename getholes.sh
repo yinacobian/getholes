@@ -13,8 +13,8 @@
 
 #1. Map to reference genome
 
-#smalt index -k 10 -s 5 $1 $1.fasta
-#smalt map -x -y 0.96 -n 20 -f samsoft -o map_$1_vs_$2.samsoft $1 $2.fasta
+smalt index -k 10 -s 5 $1 $1.fasta
+smalt map -x -y 0.96 -n 20 -f samsoft -o map_$1_vs_$2.samsoft $1 $2.fasta
 
 #2. Create mpileup files with coverage
 samtools view -b -T $1.fasta map_$1_vs_$2.samsoft -o map_$1_vs_$2.bam
